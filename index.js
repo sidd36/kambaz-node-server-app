@@ -9,7 +9,7 @@ import CourseRoutes from "./Kambaz/Courses/routes.js";
 import ModuleRoutes from "./Kambaz/Modules/routes.js";
 import EnrollmentsRoutes from './Kambaz/Enrollments/routes.js';
 import AssignmentRoutes from './Kambaz/Assignments/routes.js';
-const PORT = process.env.REACT_APP_PORT;
+const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(cors({
     credentials: true,
