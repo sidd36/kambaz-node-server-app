@@ -1,6 +1,5 @@
 import assignments from "../Database/assignments.js";
 import Database from "../Database/index.js";
-import { v4 as uuidv4 } from "uuid";
 
 export function getAssignments() {
     return Database.assignments;
