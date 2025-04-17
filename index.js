@@ -4,14 +4,12 @@ import Lab5 from './Lab5/index.js';
 import cors from 'cors';
 import UserRoutes from "./Kambaz/Users/routes.js";
 import session from "express-session";
-import dotenv from "dotenv";
+import "dotenv/config";
 import CourseRoutes from "./Kambaz/Courses/routes.js";
 import ModuleRoutes from "./Kambaz/Modules/routes.js";
 import EnrollmentsRoutes from './Kambaz/Enrollments/routes.js';
 import AssignmentRoutes from './Kambaz/Assignments/routes.js';
 import mongoose from "mongoose";
-const nodeEnv = process.env.NODE_ENV || "development"
-dotenv.config({ path: `.env.${nodeEnv}` })
 const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kambaz"
 mongoose.connect(CONNECTION_STRING);
 const PORT = process.env.PORT || 3000;
@@ -30,7 +28,7 @@ if (process.env.NODE_ENV !== "development") {
     sessionOptions.cookie = {
         sameSite: "none",
         secure: true,
-        domain: process.env.NODE_SERVER_DOMAIN,
+        domain: process.env.NODE_SERVER_DOMAIN || "http://localhost:3000",
     };
 }
 app.use(
